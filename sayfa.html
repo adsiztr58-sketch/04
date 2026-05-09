@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seni Seviyorum</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    height:100vh;
+    background:rgb(255, 0, 200);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial;
+}
+
+/* PC + mobil uyumlu yazı */
+h1{
+    font-size: clamp(30px, 8vw, 80px);
+    color:white;
+    text-align:center;
+    z-index:1;
+}
+
+/* Kalpler */
+.heart{
+    position:absolute;
+    top:-50px;
+    font-size:20px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🤍Seniii Çookkk Seviyorummmm🫶</h1>
+
+<script>
+function kalp(){
+    const el = document.createElement("div");
+    el.classList.add("heart");
+    el.innerHTML = "💗";
+
+    el.style.left = Math.random() * window.innerWidth + "px";
+    el.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+    document.body.appendChild(el);
+
+    setTimeout(()=> el.remove(), 5000);
+}
+
+setInterval(kalp, 120);
+</script>
+
+</body>
+</html>
