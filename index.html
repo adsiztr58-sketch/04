@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sevgilim 💖</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:linear-gradient(135deg,#ff9ecf,#ff4fa3);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+color:white;
+}
+
+/* Giriş */
+#login{
+position:fixed;
+inset:0;
+background:#ff4fa3;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.login-box{
+background:rgba(255,255,255,0.15);
+padding:35px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+text-align:center;
+width:320px;
+}
+
+.login-box h1{
+margin-bottom:20px;
+}
+
+.login-box input{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+margin-bottom:15px;
+font-size:16px;
+}
+
+.login-box button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:white;
+color:#ff4fa3;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.container{
+text-align:center;
+}
+
+.title{
+font-size:42px;
+margin-bottom:30px;
+}
+
+.timer{
+background:rgba(255,255,255,0.15);
+padding:25px;
+border-radius:20px;
+font-size:28px;
+backdrop-filter:blur(10px);
+margin-bottom:40px;
+}
+
+.buttons{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 35px;
+background:white;
+color:#ff4fa3;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+border-radius:15px;
+transition:0.3s;
+border:none;
+cursor:pointer;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Giriş -->
+<div id="login">
+
+<div class="login-box">
+
+<h1>Şifreyii tahminn edersinn💖</h1>
+
+<input type="password" id="password" placeholder="Şifre">
+
+<button onclick="login()">Giriş Yap</button>
+
+</div>
+
+</div>
+
+<!-- Ana Sayfa -->
+<div class="container">
+
+<h1 class="title">🩷Hayatımı güzelleştirdiğinden belli 💘</h1>
+
+<div class="timer" id="timer">
+Yükleniyor...
+</div>
+
+<div class="buttons">
+
+<a href="fotograflar.html" class="btn">
+🖼️ Fotoğraflarımız
+</a>
+<button class="btn" onclick="ac()">Basabilirmisinnn ❤️‍🔥</button>
+<script>
+function ac(){
+    window.open("sayfa.html");
+}
+</script>
+<button class="btn" onclick="git()">Oyun 🎮</button>
+
+<script>
+function git(){
+    window.location.href = "oyun.html";
+}
+</script>
+
+<button class="btn" onclick="playSong()">🎵 Şarkımız</button>
+
+<br>
+
+<audio id="audio" controls>
+<source src="ey-ask.mp3.mp3" type="audio/mpeg">
+Tarayıcın audio desteklemiyor.
+</audio>
+
+<script>
+function playSong(){
+document.getElementById("audio").play();
+}
+</script>
+
+
+</div>
+
+</div>
+
+<script>
+function showMusic(){
+
+const box = document.getElementById("musicBox");
+
+if(box.style.display === "none"){
+
+box.style.display = "block";
+
+}else{
+
+box.style.display = "none";
+
+}
+
+}
+/* Şifre */
+
+function login(){
+
+let pass = document.getElementById("password").value;
+
+if(pass === "04.10.25"){
+
+document.getElementById("login").style.display = "none";
+
+}else{
+
+alert("Biraz düşün civcivimmmm🐣");
+
+}
+
+}
+
+/* Sayaç */
+
+const startDate = new Date("2025-10-04T00:00:00");
+
+function updateTimer(){
+
+const now = new Date();
+
+const diff = now - startDate;
+
+const days = Math.floor(diff / (1000*60*60*24));
+
+const hours = Math.floor((diff / (1000*60*60)) % 24);
+
+const minutes = Math.floor((diff / (1000*60)) % 60);
+
+const seconds = Math.floor((diff / 1000) % 60);
+
+document.getElementById("timer").innerHTML =
+
+days + " Gün " +
+hours + " Saat " +
+minutes + " Dakika " +
+seconds + " Saniye";
+
+}
+
+setInterval(updateTimer,1000);
+
+updateTimer();
+
+/* Müzik */
+
+function playMusic(){
+
+document.getElementById("music").play();
+
+}
+</script>
+</body>
+</html>
