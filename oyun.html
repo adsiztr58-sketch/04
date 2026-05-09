@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soru</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    background:rgb(255, 0, 217);
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+/* Soru */
+h1{
+    font-size: clamp(28px, 6vw, 60px);
+    color:white;
+    text-align:center;
+}
+
+/* Butonlar */
+.btn{
+    margin:10px;
+    padding:15px 25px;
+    font-size: clamp(16px, 2vw, 22px);
+    border:none;
+    border-radius:15px;
+    background:white;
+    cursor:pointer;
+}
+
+/* Yağan yazılar */
+.text{
+    position:absolute;
+    top:-50px;
+    font-size:20px;
+    color:white;
+    animation:fall linear forwards;
+    white-space:nowrap;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Beni seviyor musun?🤍</h1>
+
+<button class="btn" onclick="sev()">Evetttt💓</button>
+<button class="btn" onclick="sev()">Tabikiiii💓</button>
+
+<script>
+
+function sev(){
+    setInterval(yaziYagdir, 120);
+}
+
+/* Yazı yağdırma */
+function yaziYagdir(){
+    const el = document.createElement("div");
+    el.classList.add("text");
+    el.innerHTML = "Bende Seni Çok Seviyorum 💖";
+
+    el.style.left = Math.random() * window.innerWidth + "px";
+    el.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+    document.body.appendChild(el);
+
+    setTimeout(()=> el.remove(), 5000);
+}
+
+</script>
+
+</body>
+</html>
